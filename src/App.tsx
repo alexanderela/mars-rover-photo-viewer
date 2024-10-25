@@ -5,12 +5,11 @@ import './App.css'
 import { fetchRoverPhotos } from './utils/API';
 
 function App() {
-  const [roverPhotos, setRoverPhotos] = useState();
+  const [roverPhotos, setRoverPhotos] = useState([]);
 
   const getInitialRoverPhotos = useCallback(async () => {
-    const photos = await fetchRoverPhotos('curiosity');
-    console.log('photos: ', photos)
-    setRoverPhotos(photos);
+    const photosData = await fetchRoverPhotos({rover: 'curiosity', page: 1 });
+    setRoverPhotos(photosData.photos);
   }, []);
 
   useEffect(() => {

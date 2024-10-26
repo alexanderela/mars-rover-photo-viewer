@@ -2,6 +2,7 @@ import Grid from "@mui/material/Grid2";
 import { Tabs } from "@mui/material";
 import { useState } from "react";
 import { StyledTab } from "./Content-styled";
+import { GridView } from "../../views/GridView";
 
 export const Content = () => {
   const [selectedRover, setSelectedRover] = useState<string>("curiosity");
@@ -25,11 +26,16 @@ export const Content = () => {
             display: "none",
           },
         }}
+        sx={{
+          padding: (theme) => `${theme.spacing(1)} 0 0 ${theme.spacing(1)}`
+        }}
       >
         <StyledTab label="Curiosity" value="curiosity" />
         <StyledTab label="Opportunity" value="opportunity" />
         <StyledTab label="Spirit" value="spirit" />
       </Tabs>
+      <GridView
+      />
     </Grid>
   );
 };

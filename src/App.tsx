@@ -1,15 +1,18 @@
-import { useCallback, useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { fetchRoverPhotos } from './utils/API';
+import { useCallback, useEffect, useState } from "react";
+import "./App.css";
+import { fetchRoverPhotos } from "./utils/API";
+import Grid from "@mui/material/Grid2";
+import { Header } from "./components/Header";
+import { SideNav } from "./components/SideNav";
+import { Content } from "./components/Content";
 
-function App() {
+const App = () => {
   const [roverPhotos, setRoverPhotos] = useState([]);
 
   const getInitialRoverPhotos = useCallback(async () => {
-    const photosData = await fetchRoverPhotos({rover: 'curiosity', page: 1 });
+    const photosData = await fetchRoverPhotos({ rover: "curiosity", page: 1 });
     setRoverPhotos(photosData.photos);
+    console.log("photosData.photos: ", photosData.photos);
   }, []);
 
   useEffect(() => {
@@ -18,28 +21,21 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        {/* <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Grid
+        container
+        sx={{
+          backgroundColor: (theme) => theme.palette.primary.main,
+          height: "100vh",
+          width: "100vw",
+          padding: 0,
+        }}
+      >
+        <Header />
+        <SideNav />
+        <Content />
+      </Grid>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

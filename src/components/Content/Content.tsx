@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid2";
 import { Tabs } from "@mui/material";
 import { useState } from "react";
 import { StyledTab } from "./Content-styled";
-import { GridView } from "../../views/GridView";
+import { GridView } from "../../features/GridView";
 
 export const Content = () => {
   const [selectedRover, setSelectedRover] = useState<string>("curiosity");

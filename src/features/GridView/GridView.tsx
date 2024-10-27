@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid2";
 
 export const GridView = () => {
   return (
-    <Grid
+<Grid
       sx={{
         height: "100%",
         border: '1px solid white',

@@ -1,18 +1,19 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import "./App.css";
 import { fetchRoverPhotos } from "./utils/API";
 import Grid from "@mui/material/Grid2";
 import { Header } from "./components/Header";
 import { SideNav } from "./components/SideNav";
 import { Content } from "./components/Content";
+import { useAppDispatch } from "./app/hooks";
+import { setPhotos } from "./reducers/roverPhotosSlice";
 
 const App = () => {
-  const [roverPhotos, setRoverPhotos] = useState([]);
+  const dispatch = useAppDispatch();
 
   const getInitialRoverPhotos = useCallback(async () => {
     const photosData = await fetchRoverPhotos({ rover: "curiosity", page: 1 });
-    setRoverPhotos(photosData.photos);
-    console.log("photosData.photos: ", photosData.photos);
+    dispatch(setPhotos(photosData.photos))
   }, []);
 
   useEffect(() => {

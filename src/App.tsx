@@ -21,9 +21,9 @@ const App = () => {
     dispatch(setPhotos(photosData.photos))
   }, []);
   
-  useEffect(() => {
-    handleSetRoverPhotos();
-  }, [page, selectedRover]);
+  // useEffect(() => {
+  //   handleSetRoverPhotos();
+  // }, [page, selectedRover]);
 
   return (
     <>
@@ -31,6 +31,7 @@ const App = () => {
         container
         sx={{
           backgroundColor: (theme) => theme.palette.primary.main,
+          height: "100%",
           width: "100vw",
           padding: 0,
         }}

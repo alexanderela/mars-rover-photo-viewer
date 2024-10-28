@@ -17,7 +17,8 @@ export const Content = () => {
         backgroundColor: "#343232",
         borderRadius: "8px",
         margin: "0 auto 8rem",
-        padding: '3rem'
+        padding: "3rem",
+        height: "100vh"
       }}
     >
       <Tabs

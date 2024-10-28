@@ -6,10 +6,11 @@ import pluginReact from "eslint-plugin-react";
 
 export default [
   {
-    "extends": [
-      "eslint:recommended",
-      "prettier"
-    ]
+    settings: {
+      "react": {
+        "version": "detect"
+      }
+    }
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]

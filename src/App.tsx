@@ -15,7 +15,7 @@ const App = () => {
     const photosData = await fetchRoverPhotos({ rover: "curiosity", page: 1 });
     dispatch(setPhotos(photosData.photos))
   }, []);
-
+  
   useEffect(() => {
     getInitialRoverPhotos();
   }, []);
@@ -26,7 +26,7 @@ const App = () => {
         container
         sx={{
           backgroundColor: (theme) => theme.palette.primary.main,
-          height: "100vh",
+          // height: "100vh",
           width: "100vw",
           padding: 0,
         }}

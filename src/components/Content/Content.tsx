@@ -9,11 +9,11 @@ export const Content = () => {
 
   return (
     <Grid
-      size={11}
+      size={10}
       sx={{
         backgroundColor: "#343232",
         borderRadius: "8px",
-        height: "100%",
+        margin: "0 auto",
       }}
     >
       <Tabs

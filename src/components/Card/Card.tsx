@@ -12,7 +12,8 @@ export const Card = ({ photo }: any) => {
         width: theme.spacing(25),
         margin: `${theme.spacing(1)} ${theme.spacing(2)}`,
         backgroundImage: `url(${photo.img_src})`,
-        backgroundSize: 'cover'
+        backgroundSize: "cover",
+        cursor: "pointer"
       }}
     />
   );

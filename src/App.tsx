@@ -7,8 +7,7 @@ import { SideNav } from "./components/SideNav";
 import { Content } from "./components/Content";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { setPhotos } from "./reducers/roverPhotosSlice";
-import { Pagination } from "@mui/material";
-import { setPage } from "./reducers/pageSlice";
+
 
 const App = () => {
   const page = useAppSelector(state => state.page);
@@ -21,9 +20,9 @@ const App = () => {
     dispatch(setPhotos(photosData.photos))
   }, []);
   
-  // useEffect(() => {
-  //   handleSetRoverPhotos();
-  // }, [page, selectedRover]);
+  useEffect(() => {
+    handleSetRoverPhotos();
+  }, [page, selectedRover]);
 
   return (
     <>
@@ -39,15 +38,6 @@ const App = () => {
         <Header />
         <SideNav />
         <Content />
-        <Pagination
-          count={Math.ceil(roverPhotos.length / 10)}
-          page={page}
-          shape="rounded" 
-          color="secondary"
-          onChange={(e, newPage: number) => {
-            dispatch(setPage(newPage));
-          }}
-        />
       </Grid>
     </>
   );

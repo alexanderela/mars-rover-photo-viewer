@@ -20,13 +20,13 @@ export const Content = () => {
 
   const handleSetRoverPhotos = useCallback(async () => {
     const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
-    dispatch(setPhotos(photosData.photos))
+    console.log("photosData: ", photosData)
+    dispatch(setPhotos(photosData))
   }, [dispatch, page, selectedRover]);
 
   useEffect(() => {
     handleSetRoverPhotos();
   }, [page, selectedRover, handleSetRoverPhotos]);
-
   return (
     <Grid
       size={11}
@@ -61,7 +61,7 @@ export const Content = () => {
           }}
         >
           <StyledTab label="Curiosity" value="curiosity" />
-          <StyledTab label="Opportunity" value="opportunity" />
+          <StyledTab label="Opportunity" value="opportunity" disabled />
           <StyledTab label="Spirit" value="spirit" />
         </Tabs>
         <Pagination

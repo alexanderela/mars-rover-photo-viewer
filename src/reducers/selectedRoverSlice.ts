@@ -5,7 +5,7 @@ import { Rover } from "../types/common";
 const initialState: Rover = Rover.CURIOSITY as Rover;
 
 export const selectedRoverSlice = createSlice({
-  name: 'selectedRover',
+  name: "selectedRover",
   initialState,
   reducers: {
     setSelectedRover: (state, action: PayloadAction<Rover>): Rover => {

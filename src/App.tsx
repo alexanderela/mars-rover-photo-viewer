@@ -17,7 +17,7 @@ const App = () => {
 
   const handleSetRoverPhotos = useCallback(async () => {
     const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
-    dispatch(setPhotos(photosData.photos))
+    dispatch(setPhotos(photosData))
   }, [dispatch, page, selectedRover]);
   
   useEffect(() => {

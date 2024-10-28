@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { RoverPhoto } from "../types/common";
 
-const initialState: any[] = [];
+const initialState: RoverPhoto[] = [];
 
 export const roverPhotosSlice = createSlice({
-  name: 'roverPhotos',
+  name: "roverPhotos",
   initialState,
   reducers: {
-    setPhotos: (state, action: PayloadAction<[]>) => {
+    setPhotos: (state, action: PayloadAction<RoverPhoto[]>) => {
       state = action.payload;
       return state;
     },

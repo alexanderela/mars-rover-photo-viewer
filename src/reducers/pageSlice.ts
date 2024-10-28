@@ -4,7 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 const initialState: number = 1;
 
 export const pageSlice = createSlice({
-  name: 'page',
+  name: "page",
   initialState,
   reducers: {
     setPage: (state, action: PayloadAction<number>): number => {

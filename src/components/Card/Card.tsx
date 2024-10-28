@@ -1,6 +1,11 @@
 import { Box, useTheme } from "@mui/material";
+import { RoverPhoto } from "../../types/common";
 
-export const Card = ({ photo }: any) => {
+interface CardProps {
+  photo: RoverPhoto;
+}
+
+export const Card = ({ photo }: CardProps) => {
   const theme = useTheme();
 
   return (
@@ -11,7 +16,7 @@ export const Card = ({ photo }: any) => {
         height: theme.spacing(18.8525),
         width: theme.spacing(25),
         margin: `${theme.spacing(1)} ${theme.spacing(2)}`,
-        backgroundImage: `url(${photo.img_src})`,
+        backgroundImage: `url(${photo.imgSrc})`,
         backgroundSize: "cover",
         cursor: "pointer"
       }}

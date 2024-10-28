@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { Suspense, useCallback, useEffect } from "react";
 import "./App.css";
 import { fetchRoverPhotos } from "./utils/API";
 import Grid from "@mui/material/Grid2";
@@ -7,22 +7,22 @@ import { SideNav } from "./components/SideNav";
 import { Content } from "./components/Content";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { setPhotos } from "./reducers/roverPhotosSlice";
+import { CircularProgress } from "@mui/material";
 
 
 const App = () => {
   const page = useAppSelector(state => state.page);
-  const roverPhotos = useAppSelector(state => state.roverPhotos);
   const selectedRover = useAppSelector(state => state.selectedRover);
   const dispatch = useAppDispatch();
 
   const handleSetRoverPhotos = useCallback(async () => {
     const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
     dispatch(setPhotos(photosData.photos))
-  }, []);
+  }, [dispatch, page, selectedRover]);
   
   useEffect(() => {
     handleSetRoverPhotos();
-  }, [page, selectedRover]);
+  }, [handleSetRoverPhotos]);
 
   return (
     <>
@@ -37,7 +37,9 @@ const App = () => {
       >
         <Header />
         <SideNav />
-        <Content />
+        <Suspense fallback={<CircularProgress />}>
+          <Content />
+        </Suspense>
       </Grid>
     </>
   );

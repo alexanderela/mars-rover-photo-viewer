@@ -7,6 +7,9 @@ import { setSelectedRover } from "../../reducers/selectedRoverSlice";
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
 import { setPage } from "../../reducers/pageSlice";
+import { useCallback, useEffect } from "react";
+import { setPhotos } from "../../reducers/roverPhotosSlice";
+import { fetchRoverPhotos } from "../../utils/API";
 
 
 export const Content = () => {
@@ -14,6 +17,15 @@ export const Content = () => {
   const roverPhotos = useAppSelector(state => state.roverPhotos);
   const selectedRover = useAppSelector(state => state.selectedRover);
   const dispatch = useAppDispatch();
+
+  const handleSetRoverPhotos = useCallback(async () => {
+    const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
+    dispatch(setPhotos(photosData.photos))
+  }, [dispatch, page, selectedRover]);
+
+  useEffect(() => {
+    handleSetRoverPhotos();
+  }, [page, selectedRover, handleSetRoverPhotos]);
 
   return (
     <Grid

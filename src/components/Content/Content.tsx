@@ -1,11 +1,14 @@
 import Grid from "@mui/material/Grid2";
 import { Tabs } from "@mui/material";
-import { useState } from "react";
 import { StyledTab } from "./Content-styled";
 import { GridView } from "../../features/GridView";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setSelectedRover } from "../../reducers/selectedRoverSlice";
+import { Rover } from "../../types/common";
 
 export const Content = () => {
-  const [selectedRover, setSelectedRover] = useState<string>("curiosity");
+  const selectedRover = useAppSelector(state => state.selectedRover);
+  const dispatch = useAppDispatch();
 
   return (
     <Grid
@@ -13,13 +16,14 @@ export const Content = () => {
       sx={{
         backgroundColor: "#343232",
         borderRadius: "8px",
-        margin: "0 auto",
+        margin: "0 auto 8rem",
+        padding: '3rem'
       }}
     >
       <Tabs
         value={selectedRover}
-        onChange={(e: React.SyntheticEvent, newRover: string) =>
-          setSelectedRover(newRover)
+        onChange={(e: React.SyntheticEvent, newRover: Rover) =>
+          dispatch(setSelectedRover(newRover as Rover))
         }
         TabIndicatorProps={{
           style: {

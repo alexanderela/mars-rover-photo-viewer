@@ -10,7 +10,7 @@ import { store } from "./store.ts";
 createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-        <App />
+      <App />
     </ThemeProvider>
   </Provider>,
 );

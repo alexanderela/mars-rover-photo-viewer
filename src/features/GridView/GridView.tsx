@@ -14,7 +14,6 @@ export const GridView = () => {
         direction='row'
         wrap="wrap"
         sx={{
-          border: '1px solid white',
           justifyContent: 'center',
           margin: (theme) => `${theme.spacing(1)} ${theme.spacing(2)} 0`,
         }}

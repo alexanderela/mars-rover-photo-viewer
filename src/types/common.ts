@@ -56,3 +56,13 @@ export interface RoverPhoto {
   cameraName: string;
   cameraFullName: string;
 }
+
+export interface RoverPhotoStateObj {
+  [id: number]: RoverPhoto;
+}
+
+export interface RoverPhotoState {
+  photos: RoverPhotoStateObj;
+  selectedRover: Rover;
+  page: number;
+}

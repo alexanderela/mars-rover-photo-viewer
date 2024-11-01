@@ -1,16 +1,18 @@
-import { FetchRoverProps, RoverPhoto, RoverPhotoRaw } from "../types/common";
+import { FetchRoverProps, RoverPhoto, RoverPhotoRaw, RoverPhotoStateObj } from "../types/common";
+import { convertPhotoArrayToObj } from "../utils/ArrayUtils";
 
 export const fetchRoverPhotos = async ({
   rover,
   options = {},
   page,
-}: FetchRoverProps): Promise<RoverPhoto[]> => {
+}: FetchRoverProps): Promise<RoverPhotoStateObj> => {
   try {    
     // const url: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&page=${page}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
     const url: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?page=${page}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
     const photoData = await fetch(url, options);
     const photoJsonData = await photoData.json();
-    return await formatRoverPhotosData(photoJsonData.latest_photos);
+    const formattedRoverPhotosArr = await formatRoverPhotosData(photoJsonData.latest_photos);
+    return convertPhotoArrayToObj(formattedRoverPhotosArr);
   } catch (error) {
     console.warn(error);
     return [];

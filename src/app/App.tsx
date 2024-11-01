@@ -1,18 +1,18 @@
 import React, { Suspense, useCallback, useEffect } from "react";
 import "./App.css";
-import { fetchRoverPhotos } from "./utils/API";
+import { fetchRoverPhotos } from "../api/API";
 import Grid from "@mui/material/Grid2";
-import { Header } from "./components/Header";
-import { SideNav } from "./components/SideNav";
-import { Content } from "./components/Content";
-import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { setPhotos } from "./reducers/roverPhotosSlice";
+import { Header } from "../layout/Header";
+import { SideNav } from "../layout/SideNav";
+import { Content } from "../layout/Content";
+import { useAppDispatch, useAppSelector } from "./hooks";
+import { setPhotos } from "../features/photos/PhotoViewer/photoViewerSlice";
 import { CircularProgress } from "@mui/material";
 
 
 const App = () => {
-  const page = useAppSelector(state => state.page);
-  const selectedRover = useAppSelector(state => state.selectedRover);
+  const page = useAppSelector(state => state.roverPhotos.page);
+  const selectedRover = useAppSelector(state => state.roverPhotos.selectedRover);
   const dispatch = useAppDispatch();
 
   const handleSetRoverPhotos = useCallback(async () => {

@@ -1,26 +1,23 @@
 import Grid from "@mui/material/Grid2";
 import { Box, Tabs } from "@mui/material";
 import { StyledTab } from "./Content-styled";
-import { GridView } from "../../features/GridView";
+import { PhotoViewer } from "../../features/photos/PhotoViewer";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setSelectedRover } from "../../reducers/selectedRoverSlice";
+import { setPhotos, setSelectedRover, setPage } from "../../features/photos/PhotoViewer/photoViewerSlice";
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
-import { setPage } from "../../reducers/pageSlice";
 import { useCallback, useEffect } from "react";
-import { setPhotos } from "../../reducers/roverPhotosSlice";
-import { fetchRoverPhotos } from "../../utils/API";
+import { fetchRoverPhotos } from "../../api/API";
 
 
 export const Content = () => {
-  const page = useAppSelector(state => state.page);
-  const roverPhotos = useAppSelector(state => state.roverPhotos);
-  const selectedRover = useAppSelector(state => state.selectedRover);
+  const page = useAppSelector(state => state.roverPhotos.page);
+  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
+  const selectedRover = useAppSelector(state => state.roverPhotos.selectedRover);
   const dispatch = useAppDispatch();
 
   const handleSetRoverPhotos = useCallback(async () => {
     const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
-    console.log("photosData: ", photosData)
     dispatch(setPhotos(photosData))
   }, [dispatch, page, selectedRover]);
 
@@ -65,7 +62,7 @@ export const Content = () => {
           <StyledTab label="Spirit" value="spirit" />
         </Tabs>
         <Pagination
-          count={Math.ceil(roverPhotos.length / 10)}
+          count={Math.ceil(Object.keys(roverPhotos).length / 10)}
           page={page}
           shape="rounded" 
           onChange={(e, newPage: number) => {
@@ -80,7 +77,7 @@ export const Content = () => {
           }}
         />
       </Box>
-      <GridView
+      <PhotoViewer
       />
     </Grid>
   );

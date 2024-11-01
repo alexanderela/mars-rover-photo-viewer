@@ -1,12 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import roverPhotosReducer from "../reducers/roverPhotosSlice";
-import pageSliceReducer from "../reducers/pageSlice";
-import selectedRoverSliceReducer from "../reducers/selectedRoverSlice";
+import photosReducer from "../features/photos/PhotoViewer/photoViewerSlice";
 
 const reducer = {
-  roverPhotos: roverPhotosReducer,
-  page: pageSliceReducer,
-  selectedRover: selectedRoverSliceReducer,
+  roverPhotos: photosReducer,
 }
 
 export const store = configureStore({ 
@@ -14,5 +10,5 @@ export const store = configureStore({
 });
 
 export type AppStore = typeof store;
-export type RootState = ReturnType<AppStore['getState']>;
-export type AppDispatch = AppStore['dispatch'];
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];

@@ -1,11 +1,11 @@
 import Grid from "@mui/material/Grid2";
-import { useAppSelector } from "../../app/hooks";
-import { Card } from "../../components/Card"
+import { useAppSelector } from "../../../app/hooks";
+import { Card } from "../../../components/Card"
 import { Suspense } from "react";
 import { CircularProgress } from "@mui/material";
 
-export const GridView = () => {
-  const roverPhotos = useAppSelector(state => state.roverPhotos);
+export const PhotoViewer = () => {
+  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
 
   return (
     <Suspense fallback={<CircularProgress />}>
@@ -20,11 +20,11 @@ export const GridView = () => {
         }}
       >
         {
-          roverPhotos.map((photo, index: number) => {
+          Object.entries(roverPhotos).map(([key, val]) => {
             return (
               <Card
-                key={index}
-                photo={photo}
+                key={key}
+                photo={val}
               />
             )
           })

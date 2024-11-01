@@ -1,4 +1,5 @@
-import { FetchRoverProps, RoverPhoto, RoverPhotoRaw, RoverPhotoStateObj } from "../types/common";
+import {  RoverPhoto, RoverPhotoStateObj } from "../types/common";
+import { FetchRoverProps, RoverPhotoRaw } from "../api/types";
 import { convertPhotoArrayToObj } from "../utils/ArrayUtils";
 
 export const fetchRoverPhotos = async ({

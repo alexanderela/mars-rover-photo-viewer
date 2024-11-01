@@ -3,6 +3,7 @@ import { useAppSelector } from "../../../app/hooks";
 import { Card } from "../../../components/Card"
 import { Suspense } from "react";
 import { CircularProgress } from "@mui/material";
+import { RoverPhoto } from "../../../types/common";
 
 export const PhotoViewer = () => {
   const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
@@ -24,7 +25,7 @@ export const PhotoViewer = () => {
             return (
               <Card
                 key={key}
-                photo={val}
+                photo={val as RoverPhoto}
               />
             )
           })

@@ -1,8 +1,8 @@
 import Grid from "@mui/material/Grid2";
-import { Box, Tabs } from "@mui/material";
+import { Box, CircularProgress, Tabs } from "@mui/material";
 import { StyledTab } from "./Content-styled";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
+import { setIsLoading, setPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
 import { useCallback, useEffect } from "react";
@@ -10,17 +10,23 @@ import { fetchRoverPhotos } from "../../api/API";
 import { Outlet, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export const Content = () => {
-  const roverPhotos = useAppSelector(state => state.roverPhotos);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
+  const isLoading = useAppSelector(state => state.roverPhotos.isLoading);
   const { rover } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
 
+
   const handleSetRoverPhotos = useCallback(async () => {
+    dispatch(setIsLoading(true));
+
     const photosData = await fetchRoverPhotos({ rover: rover as string, page: page as string });
-    dispatch(setPhotos(photosData))
+    dispatch(setPhotos(photosData));
+
+    dispatch(setIsLoading(false));
   }, [dispatch, page, rover]);
 
   useEffect(() => {
@@ -85,7 +91,19 @@ export const Content = () => {
           }}
         />
       </Box>
-      <Outlet />
+      { !isLoading ?
+        <CircularProgress 
+          color="primary" 
+          size={60} 
+          sx={{
+            "& .MuiCircularProgress-circle": {
+              color: "#B8B4B4"
+            }
+          }}
+        />
+        :
+        <Outlet />
+      }
     </Grid>
   );
 };

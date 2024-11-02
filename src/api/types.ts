@@ -3,7 +3,7 @@ import { Obj } from "../types/common";
 export interface FetchRoverProps {
   rover: string;
   options?: Obj;
-  page: number;
+  page: string;
 }
 
 export interface RoverPhotoRaw {

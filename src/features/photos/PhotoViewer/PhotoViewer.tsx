@@ -6,7 +6,7 @@ import { CircularProgress } from "@mui/material";
 import { RoverPhoto } from "../../../types/common";
 
 export const PhotoViewer = () => {
-  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
+  const roverPhotos = useAppSelector(state => state.roverPhotos);
 
   return (
     <Suspense fallback={<CircularProgress />}>

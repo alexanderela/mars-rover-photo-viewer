@@ -8,7 +8,6 @@ export const fetchRoverPhotos = async ({
   page,
 }: FetchRoverProps): Promise<RoverPhotoStateObj> => {
   try {    
-    // const url: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&page=${page}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
     const url: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?page=${page}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
     const photoData = await fetch(url, options);
     const photoJsonData = await photoData.json();
@@ -16,7 +15,7 @@ export const fetchRoverPhotos = async ({
     return convertPhotoArrayToObj(formattedRoverPhotosArr);
   } catch (error) {
     console.warn(error);
-    return [];
+    return {};
   }
 };
 

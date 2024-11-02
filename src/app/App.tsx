@@ -8,17 +8,17 @@ import { Content } from "../layout/Content";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { setPhotos } from "../features/photos/PhotoViewer/photoViewerSlice";
 import { CircularProgress } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 
 const App = () => {
-  const page = useAppSelector(state => state.roverPhotos.page);
-  const selectedRover = useAppSelector(state => state.roverPhotos.selectedRover);
+  const { rover } = useParams();
   const dispatch = useAppDispatch();
 
   const handleSetRoverPhotos = useCallback(async () => {
-    const photosData = await fetchRoverPhotos({ rover: selectedRover, page });
+    const photosData = await fetchRoverPhotos({ rover: rover as string, page });
     dispatch(setPhotos(photosData))
-  }, [dispatch, page, selectedRover]);
+  }, [dispatch, page, rover]);
   
   useEffect(() => {
     handleSetRoverPhotos();

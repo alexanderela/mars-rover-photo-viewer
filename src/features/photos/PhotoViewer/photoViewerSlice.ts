@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { RoverPhotoState, Rover, RoverPhotoStateObj } from "../../../types/common";
+import { RoverPhotoStateObj } from "../../../types/common";
+import { RoverPhotoState } from "./types";
 
 const initialState: RoverPhotoState = {
   photos: {},
-  selectedRover: Rover.CURIOSITY as Rover,
-  page: 1
 };
 
 export const roverPhotosSlice = createSlice({
@@ -15,14 +14,8 @@ export const roverPhotosSlice = createSlice({
     setPhotos: (state, action: PayloadAction<RoverPhotoStateObj>): void => {
       state.photos = action.payload;
     },
-    setSelectedRover: (state, action: PayloadAction<Rover>): void => {
-      state.selectedRover = action.payload;
-    },
-    setPage: (state, action: PayloadAction<number>): void => {
-      state.page = action.payload;
-    }
   }
 });
 
-export const { setPhotos, setSelectedRover, setPage } = roverPhotosSlice.actions;
+export const { setPhotos } = roverPhotosSlice.actions;
 export default roverPhotosSlice.reducer;

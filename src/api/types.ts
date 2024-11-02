@@ -1,9 +1,18 @@
-import { Obj } from "../types/common";
+import { Obj, Rover, RoverPhotoStateObj } from "../types/common";
 
 export interface FetchRoverProps {
-  rover: string;
+  url: string;
   options?: Obj;
+}
+
+export interface HandleSetRoverPhotosProps {
+  rover: Rover;
   page: string;
+}
+
+export interface FetchRoverResultProps {
+  photos: RoverPhotoStateObj;
+  totalPhotos: number;
 }
 
 export interface RoverPhotoRaw {

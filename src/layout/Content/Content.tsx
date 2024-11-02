@@ -1,39 +1,36 @@
 import Grid from "@mui/material/Grid2";
-import { Box, Tabs } from "@mui/material";
+import { Box, CircularProgress, Tabs } from "@mui/material";
 import { StyledTab } from "./Content-styled";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
+import { handleSetRoverPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
 import { useCallback, useEffect } from "react";
-import { fetchRoverPhotos } from "../../api/API";
 import { Outlet, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export const Content = () => {
-  const roverPhotos = useAppSelector(state => state.roverPhotos);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const isLoading = useAppSelector(state => state.roverPhotos.isLoading);
+  const totalPhotos = useAppSelector(state => state.roverPhotos.totalPhotos);
   const { rover } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
-
-  const handleSetRoverPhotos = useCallback(async () => {
-    const photosData = await fetchRoverPhotos({ rover: rover as string, page: page as string });
-    dispatch(setPhotos(photosData))
-  }, [dispatch, page, rover]);
-
-  useEffect(() => {
-    handleSetRoverPhotos();
-  }, [page, rover, handleSetRoverPhotos]);
 
   const handleSelectRoverRoute = useCallback((e: React.SyntheticEvent, newRover: Rover) => {
     navigate(`rovers/${newRover}?page=1`);
   }, [navigate]);
 
   const handleChangePage = useCallback((e: React.ChangeEvent<unknown>, newPage: number) => {
-    setSearchParams({ page: newPage.toString() })
+    setSearchParams({ page: newPage.toString() });
   }, [setSearchParams]);
+
+  useEffect(() => {
+    dispatch(
+      handleSetRoverPhotos({ rover: rover as Rover, page: page as string })
+    );
+  }, [dispatch, page, rover]);
 
   return (
     <Grid
@@ -71,8 +68,7 @@ export const Content = () => {
           <StyledTab label="Spirit" value="spirit" />
         </Tabs>
         <Pagination
-          count={Object.keys(roverPhotos).length}
-          // count={Math.ceil(Object.keys(roverPhotos).length / 10)}
+          count={Math.ceil(totalPhotos / 25)}
           page={parseInt(page as string)}
           shape="rounded" 
           onChange={handleChangePage}
@@ -85,7 +81,19 @@ export const Content = () => {
           }}
         />
       </Box>
-      <Outlet />
+      { isLoading ?
+        <CircularProgress 
+          color="primary" 
+          size={60} 
+          sx={{
+            "& .MuiCircularProgress-circle": {
+              color: "#B8B4B4"
+            }
+          }}
+        />
+        :
+        <Outlet />
+      }
     </Grid>
   );
 };

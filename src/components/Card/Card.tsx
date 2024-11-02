@@ -1,11 +1,12 @@
 import { Box, useTheme } from "@mui/material";
 import { RoverPhoto } from "../../types/common";
+import { memo } from "react";
 
 interface CardProps {
   photo: RoverPhoto;
 }
 
-export const Card = ({ photo }: CardProps) => {
+export const Card = memo(function Card({ photo }: CardProps) {
   const theme = useTheme();
 
   return (
@@ -22,4 +23,4 @@ export const Card = ({ photo }: CardProps) => {
       }}
     />
   );
-};
+});

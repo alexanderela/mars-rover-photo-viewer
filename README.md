@@ -11,14 +11,15 @@ This project is a simple application to view photos from the different rovers on
 ### Iteration 0: Mockups and Basic Photo Viewer Dashboard
   * Create mockups.
   * Fetch and display photos from Mars rovers from most recent sol using NASA's [Mars Rover Photos API](https://api.nasa.gov/).
-  * Allow users to select which rover’s photos to view and filter by sol or Earth date.
   * Display 25 photos at a time and integrate pagination with photo API requests.
   * Add Material UI components to improve user experience.
+  * Implement global state using Redux to store rover selection, filters, and photos across application.
 
 ### Iteration 1: Advanced State Management, Filtering, & Performance Optimization
-  * Implement global state using Redux to store rover selection, filters, and photos across application.
   * Implement lazy loading and memoization for photo galleries to optimize for larger datasets.
+  * Allow users to click on individual photos and view enlarged photo in dialog.
   * Develop unit test suite for key components and API request files.
+  * Allow users to select which rover’s photos to view and filter by sol or Earth date.
   * Add filters for camera type (front, rear, panoramic), date range, and sorting option (sol and date)
 
 ### Iteration 2: Backend API Integration and RESTful CRUD Operations

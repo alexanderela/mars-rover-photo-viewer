@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RoverPhotoStateObj } from "../../../types/common";
-import { RoverPhotoState } from "./types";
 
-const initialState: RoverPhotoState = {
-  photos: {},
-};
+const initialState = {};
 
 export const roverPhotosSlice = createSlice({
   name: "photos",
   initialState,
   reducers: {
     setPhotos: (state, action: PayloadAction<RoverPhotoStateObj>): void => {
-      state.photos = action.payload;
+      state = action.payload;
     },
   }
 });

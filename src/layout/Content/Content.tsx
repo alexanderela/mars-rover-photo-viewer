@@ -10,7 +10,7 @@ import { fetchRoverPhotos } from "../../api/API";
 import { Outlet, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export const Content = () => {
-  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
+  const roverPhotos = useAppSelector(state => state.roverPhotos);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

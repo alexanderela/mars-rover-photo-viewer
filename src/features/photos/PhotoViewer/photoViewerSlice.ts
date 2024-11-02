@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { RoverPhotoStateObj } from "../../../types/common";
 import { AppThunk } from "../../../app/store";
 import { fetchRoverPhotos, fetchTotalNumberOfRoverPhotos } from "../../../api/API";
-import { FetchRoverProps } from "../../../api/types";
+import { HandleSetRoverPhotosProps } from "../../../api/types";
 
 const initialState = {
   photos: {},
@@ -37,15 +37,21 @@ export const roverPhotosSlice = createSlice({
 });
 
 // Thunk
-export const handleSetPhotos = ({ rover, page }: FetchRoverProps): AppThunk => {
+export const handleSetRoverPhotos = ({ rover, page }: HandleSetRoverPhotosProps): AppThunk => {
   return async (dispatch) => {
     try {
       dispatch(setIsLoading(true));
 
-      const totalNumberOfRoverPhotos = await fetchTotalNumberOfRoverPhotos({ rover });
+      /* NASA's Mars Rover API unfortunately does not return total count.  Therefore,
+      separate async requests are necessary for getting the total photo count and the 25 photos
+      we want for any given pagination step. 
+      */
+      const totalPhotosUrl: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
+      const totalNumberOfRoverPhotos = await fetchTotalNumberOfRoverPhotos({ url: totalPhotosUrl });
       dispatch(setTotalPhotos(totalNumberOfRoverPhotos));
 
-      const roverPhotos = await fetchRoverPhotos({ rover, page });
+      const roverPhotosUrl: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?page=${page || "1"}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
+      const roverPhotos = await fetchRoverPhotos({ url: roverPhotosUrl });
       dispatch(setPhotos(roverPhotos));
 
       dispatch(setIsLoading(false));

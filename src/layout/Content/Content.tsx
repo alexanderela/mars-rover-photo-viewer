@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid2";
 import { Box, CircularProgress, Tabs } from "@mui/material";
 import { StyledTab } from "./Content-styled";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { handleSetPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
+import { handleSetRoverPhotos } from "../../features/photos/PhotoViewer/photoViewerSlice";
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
 import { useCallback, useEffect } from "react";
@@ -28,7 +28,7 @@ export const Content = () => {
 
   useEffect(() => {
     dispatch(
-      handleSetPhotos({ rover: rover as Rover, page: page as string })
+      handleSetRoverPhotos({ rover: rover as Rover, page: page as string })
     );
   }, [dispatch, page, rover]);
 

@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, ThunkAction, UnknownAction } from "@reduxjs/toolkit";
 import photosReducer from "../features/photos/PhotoViewer/photoViewerSlice";
 
 const reducer = {
@@ -12,3 +12,9 @@ export const store = configureStore({
 export type AppStore = typeof store;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  UnknownAction
+>;

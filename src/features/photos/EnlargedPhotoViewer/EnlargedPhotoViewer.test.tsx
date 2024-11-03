@@ -1,16 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { PhotoViewer } from "./PhotoViewer";
+import { EnlargedPhotoViewer } from "./EnlargedPhotoViewer";
 import { render, screen } from "../../../tests/test-utils";
 import { MemoryRouter } from "react-router-dom";
 
-describe("<PhotoViewer", () => {
-  it("renders PhotoViewer component", () => {
+describe("<EnlargedPhotoViewer />", () => {
+  it("renders EnlargedPhotoViewer component", () => {
     render(
       <MemoryRouter>
-        <PhotoViewer />
+        <EnlargedPhotoViewer />
       </MemoryRouter>
     );
-    const element = screen.getByTestId(/PhotoViewer/i);
+    const element = screen.getByTestId(/EnlargedPhotoViewer/i);
     expect(element).toBeInTheDocument();
     expect(element).toMatchSnapshot();
   });

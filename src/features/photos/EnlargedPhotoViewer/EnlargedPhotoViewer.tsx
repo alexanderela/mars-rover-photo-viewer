@@ -1,8 +1,8 @@
 import { Box, Dialog, useTheme } from "@mui/material";
 import { memo, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
-import { RoverPhotoStateObj } from "../../types/common";
+import { useAppSelector } from "../../../app/hooks";
+import { RoverPhotoStateObj } from "../../../types/common";
 
 export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
   const theme = useTheme();
@@ -27,6 +27,7 @@ export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
           borderRadius: theme.spacing(1),
         }
       }}
+      data-testid="EnlargedPhotoViewer"
     >
       <Box
         sx={{
@@ -37,7 +38,7 @@ export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
           backgroundSize: "cover",
           cursor: "pointer",
         }}
-      />
+      >{parsedId}</Box>
     </Dialog>
   );
 });

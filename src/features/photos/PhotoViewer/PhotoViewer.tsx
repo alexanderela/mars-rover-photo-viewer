@@ -13,8 +13,8 @@ export const PhotoViewer = memo(function PhotoViewer() {
       container
       direction='row'
       wrap="wrap"
+      data-testid="PhotoViewer"
       sx={{
-
         justifyContent: "center",
         margin: (theme) => `${theme.spacing(1)} ${theme.spacing(2)} 0`,
       }}

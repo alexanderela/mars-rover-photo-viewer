@@ -6,21 +6,20 @@ import "./App.css";
 
 const App = () => {
   return (
-    <>
-      <Grid
-        container
-        sx={{
-          backgroundColor: (theme) => theme.palette.primary.main,
-          height: "100%",
-          width: "100vw",
-          padding: 0,
-        }}
-      >
-        <Header />
-        <SideNav />
-        <Content />
-      </Grid>
-    </>
+    <Grid
+      container
+      data-testid="App"
+      sx={{
+        backgroundColor: (theme) => theme.palette.primary.main,
+        height: "100%",
+        width: "100vw",
+        padding: 0,
+      }}
+    >
+      <Header />
+      <SideNav />
+      <Content />
+    </Grid>
   );
 };
 

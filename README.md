@@ -1,4 +1,6 @@
 # mars-rover-photo-viewer
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0c9852f5-c77c-44ed-8ca7-3b5fa555a0b2/deploy-status)](https://app.netlify.com/sites/mars-rover-photo-viewer/deploys)
+
 This project is a simple application to view photos from the different rovers on Mars.
 
 ## Project Setup

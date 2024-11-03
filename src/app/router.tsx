@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   redirect,
 } from "react-router-dom";
+import { EnlargedPhotoViewer } from "../features/EnlargedPhotoViewer";
 
 export const routesConfig = [
   {
@@ -30,8 +31,14 @@ export const routesConfig = [
               <PhotoViewer />
             )
           }
-        }
-      }
+        },
+        children: [
+          {
+            path: "id/:id",
+            element: <EnlargedPhotoViewer />
+          }
+        ]
+      },
     ]
   },
 ];

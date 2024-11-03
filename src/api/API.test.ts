@@ -2,17 +2,19 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as API from "./API";
 import { cleanup } from "@testing-library/react";
 import { RoverPhotoRaw } from "./types";
+import { mockRoverPhotosFormatted, mockRoverPhotosRaw } from "../tests/mocks";
 
 describe("<API />", () => {
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+  });
+
   describe("fetchRoverPhotoData()", () => {
     beforeEach(() => {
       window.fetch = vi.fn().mockResolvedValue({
         json: () => Promise.resolve({ latest_photos: [] })
       })
-    });
-
-    afterEach(() => {
-      cleanup();
     });
 
     it("calls fetch with correct parameters", () => {
@@ -29,23 +31,24 @@ describe("<API />", () => {
     });    
   });
 
-  describe("fetchRoverPhotoData()", () => {
+  describe("fetchRoverPhotos()", () => {
     it.skip("fetches formatted rover photos", () => {
       
     });
     
   });
 
-  describe("fetchRoverPhotoData()", () => {
+  describe("fetchTotalNumberOfRoverPhotos()", () => {
     it.skip("fetches total number of rover photos", () => {
       
     });
     
   });
 
-  describe("fetchRoverPhotoData()", () => {
-    it.skip("returns formatted rover photos", () => {
-      
+  describe("formatRoverPhotosData()", () => {
+    it("returns formatted rover photos", async () => {
+      const response = await API.formatRoverPhotosData(mockRoverPhotosRaw);
+      expect(response).toEqual(mockRoverPhotosFormatted);
     });
     
   });

@@ -1,26 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { Card } from "./Card";
 import { render, screen, fireEvent } from "../../tests/test-utils";
-import { RoverPhoto } from "../../types/common";
 import { createMemoryRouter, MemoryRouter, RouterProvider } from "react-router-dom";
 import { act } from "react";
-
-const mockPhoto: RoverPhoto = {
-  id: 1228204,
-  name: "Curiosity",
-  roverName: "curiosity",
-  imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404334U01_DXXX.jpg",
-  earthDate: "2024-02-19",
-  sol: 4102,
-  cameraName: "MAHLI",
-  cameraFullName: "Mars Hand Lens Imager"
-}
+import { mockSingleRoverPhoto } from "../../tests/mocks";
 
 describe("<Card />", () => {
   it("renders Card component", () => {
     render(
       <MemoryRouter>
-        <Card photo={mockPhoto} />
+        <Card photo={mockSingleRoverPhoto} />
       </MemoryRouter>
     );
     const element = screen.getByTestId(/Card/i);
@@ -32,7 +21,7 @@ describe("<Card />", () => {
     const routes = [
       {
         path: "/rovers/curiosity",
-        element: <Card photo={mockPhoto} />
+        element: <Card photo={mockSingleRoverPhoto} />
       }
     ]
     const router = createMemoryRouter(routes, {

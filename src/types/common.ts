@@ -11,6 +11,7 @@ export enum Rover {
 export interface RoverPhoto {
   id: number;
   name: string;
+  roverName: string;
   imgSrc: string;
   earthDate: string;
   sol: number;
@@ -18,6 +19,9 @@ export interface RoverPhoto {
   cameraFullName: string;
 }
 
+// export interface RoverPhotoStateObj {
+//   [id: number]: RoverPhoto;
+// }
 export interface RoverPhotoStateObj {
   [id: number]: RoverPhoto;
 }

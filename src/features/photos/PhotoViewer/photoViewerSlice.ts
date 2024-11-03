@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export interface State {
-  photos: { [key: number]: RoverPhotoStateObj };
+  photos: RoverPhotoStateObj;
   isLoading: boolean;
   totalPhotos: number;
 }

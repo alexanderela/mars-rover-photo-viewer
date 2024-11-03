@@ -2,8 +2,6 @@ import {  RoverPhoto, RoverPhotoStateObj } from "../types/common";
 import { FetchRoverProps, RoverPhotoRaw } from "../api/types";
 import { convertPhotoArrayToObj } from "../utils/ArrayUtils";
 
-
-
 export const fetchRoverPhotoData = async ({
   url,
   options = {},
@@ -17,7 +15,6 @@ export const fetchRoverPhotoData = async ({
     return [];
   }
 };
-
 
 export const fetchRoverPhotos = async ({
   url,
@@ -51,6 +48,7 @@ export const formatRoverPhotosData = async (roverPhotos: RoverPhotoRaw[]): Promi
     return {
       id: roverPhoto.id,
       name: roverPhoto.rover.name,
+      roverName: roverPhoto.rover.name.toLowerCase(),
       imgSrc: roverPhoto.img_src,
       earthDate: roverPhoto.earth_date,
       sol: roverPhoto.sol,

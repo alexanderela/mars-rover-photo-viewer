@@ -1,4 +1,6 @@
 # mars-rover-photo-viewer
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0c9852f5-c77c-44ed-8ca7-3b5fa555a0b2/deploy-status)](https://app.netlify.com/sites/mars-rover-photo-viewer/deploys)
+
 This project is a simple application to view photos from the different rovers on Mars.
 
 ## Project Setup
@@ -19,14 +21,16 @@ This project is a simple application to view photos from the different rovers on
   * Implement lazy loading and memoization for photo galleries to optimize for larger datasets.
   * Allow users to click on individual photos and view enlarged photo in dialog.
   * Develop unit test suite for key components and API request files.
-  * Allow users to select which rover’s photos to view and filter by sol or Earth date.
-  * Add filters for camera type (front, rear, panoramic), date range, and sorting option (sol and date)
 
 ### Iteration 2: Backend API Integration and RESTful CRUD Operations
   * Build simple backend API using Node.js/Express to save, update, and delete user-selected photos (CRUD).
   * Provide endpoints for managing user’s collection of “favorite” photos.
   * Create UI for viewing, adding to, and managing favorites.
   * Extend test suite to cover interactions with backend, ensuring successful CRUD operations and handling of backend errors.
+
+  ### Iteration 3: Filtering
+  * Allow users to select which rover’s photos to view and filter by sol or Earth date.
+  * Add filters for camera type (front, rear, panoramic), date range, and sorting option (sol and date)
 
 ### Extensions:
   * Use React Three Fiber to create a 3D Martian landscape, simulating the rover’s path with basic Martian terrain.

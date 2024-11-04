@@ -39,7 +39,8 @@ export const mockPreloadedState: Partial<RootState> = {
   roverPhotos: {
     photos: mockRoverPhotosState,
     isLoading: false,
-    totalPhotos: 3
+    totalPhotos: 3,
+    error: ""
   }
 };
 

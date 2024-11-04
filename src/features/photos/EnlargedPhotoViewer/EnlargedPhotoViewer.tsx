@@ -27,7 +27,7 @@ export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
           borderRadius: theme.spacing(1),
         }
       }}
-      data-testId="EnlargedPhotoViewer"
+      data-testid="EnlargedPhotoViewer"
     >
       <Box
         sx={{

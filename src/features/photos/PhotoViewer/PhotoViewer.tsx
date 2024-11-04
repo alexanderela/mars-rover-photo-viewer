@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 export const PhotoViewer = memo(function PhotoViewer() {
   const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
-
+  
   return (
     <Grid
       container

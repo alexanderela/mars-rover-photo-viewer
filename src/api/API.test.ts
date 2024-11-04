@@ -43,7 +43,7 @@ describe("<API />", () => {
     it("fetches formatted rover photos", async () => {
       window.fetch = vi.fn().mockResolvedValue({
         json: () => Promise.resolve({ latest_photos: mockRoverPhotosRaw })
-      })
+      });
       const result = await API.fetchRoverPhotos({ url });
       expect(result).toEqual(mockRoverPhotosState);
     });

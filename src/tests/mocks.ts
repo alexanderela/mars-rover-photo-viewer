@@ -13,35 +13,35 @@ export const mockSingleRoverPhoto: RoverPhoto = {
 }
 
 export const mockRoverPhotosState: RoverPhotoStateObj = {
-  1228204: {
-    id: 1228204,
+  1228212: {
+    id: 1228212,
     name: "Curiosity",
     roverName: "curiosity",
-    imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404334U01_DXXX.jpg",
+    imgSrc: "https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04102/opgs/edr/fcam/FLB_761645828EDR_F1060660FHAZ00302M_.JPG",
     earthDate: "2024-02-19",
     sol: 4102,
-    cameraName: "MAHLI",
-    cameraFullName: "Mars Hand Lens Imager"
+    cameraName: "FHAZ",
+    cameraFullName: "Front Hazard Avoidance Camera"
   },
-  1228205: {
-    id: 1228205,
+  1228213: {
+    id: 1228213,
     name: "Curiosity",
     roverName: "curiosity",
-    imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404333T01_DXXX.jpg",
+    imgSrc: "https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04102/opgs/edr/fcam/FRB_761645828EDR_F1060660FHAZ00302M_.JPG",
     earthDate: "2024-02-19",
     sol: 4102,
-    cameraName: "MAHLI",
-    cameraFullName: "Mars Hand Lens Imager"
+    cameraName: "FHAZ",
+    cameraFullName: "Front Hazard Avoidance Camera"
   },
-  1228206: {
-    id: 1228206,
+  1228214: {
+    id: 1228214,
     name: "Curiosity",
     roverName: "curiosity",
-    imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404332U01_DXXX.jpg",
+    imgSrc: "https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04102/opgs/edr/rcam/RLB_761645951EDR_S1060660RHAZ00300M_.JPG",
     earthDate: "2024-02-19",
     sol: 4102,
-    cameraName: "MAHLI",
-    cameraFullName: "Mars Hand Lens Imager"
+    cameraName: "RHAZ",
+    cameraFullName: "Rear Hazard Avoidance Camera"
   }
 }
 

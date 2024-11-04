@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as API from "./API";
 import { cleanup } from "@testing-library/react";
 import { RoverPhotoRaw } from "./types";
-import { mockRoverPhotosFormatted, mockRoverPhotosRaw } from "../tests/mocks";
+import { mockRoverPhotosFormatted, mockRoverPhotosRaw, mockRoverPhotosState } from "../tests/mocks";
 
 describe("<API />", () => {
   afterEach(() => {
@@ -32,17 +32,26 @@ describe("<API />", () => {
   });
 
   describe("fetchRoverPhotos()", () => {
-    it.skip("fetches formatted rover photos", () => {
-      
+    it("fetches formatted rover photos", async () => {
+      window.fetch = vi.fn().mockResolvedValue({
+        json: () => Promise.resolve({ latest_photos: mockRoverPhotosRaw })
+      })
+      const url = "https://api.nasa.gov/mars-photos/api/v1";
+      const result = await API.fetchRoverPhotos({ url });
+      expect(result).toEqual(mockRoverPhotosState);
     });
     
   });
 
   describe("fetchTotalNumberOfRoverPhotos()", () => {
-    it.skip("fetches total number of rover photos", () => {
-      
+    it("fetches total number of rover photos", async () => {
+      window.fetch = vi.fn().mockResolvedValue({
+        json: () => Promise.resolve({ latest_photos: mockRoverPhotosRaw })
+      })
+      const url = "https://api.nasa.gov/mars-photos/api/v1";
+      const result = await API.fetchTotalNumberOfRoverPhotos({ url });
+      expect(result).toEqual(3);
     });
-    
   });
 
   describe("formatRoverPhotosData()", () => {

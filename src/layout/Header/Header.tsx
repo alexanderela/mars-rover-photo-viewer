@@ -11,6 +11,7 @@ export const Header = () => {
         alignItems: "center",
         justifyContent: "space-between"
       }}
+      data-testid="Header"
     >
       <Typography
         sx={{

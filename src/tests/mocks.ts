@@ -1,16 +1,6 @@
 import { RoverPhotoRaw } from "../api/types";
+import { RootState } from "../app/store";
 import { RoverPhoto, RoverPhotoStateObj } from "../types/common";
-
-export const mockSingleRoverPhoto: RoverPhoto = {
-  id: 1228204,
-  name: "Curiosity",
-  roverName: "curiosity",
-  imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404334U01_DXXX.jpg",
-  earthDate: "2024-02-19",
-  sol: 4102,
-  cameraName: "MAHLI",
-  cameraFullName: "Mars Hand Lens Imager"
-}
 
 export const mockRoverPhotosState: RoverPhotoStateObj = {
   1228212: {
@@ -44,6 +34,14 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     cameraFullName: "Rear Hazard Avoidance Camera"
   }
 }
+
+export const mockPreloadedState: Partial<RootState> = {
+  roverPhotos: {
+    photos: mockRoverPhotosState,
+    isLoading: false,
+    totalPhotos: 3
+  }
+};
 
 export const mockRoverPhotosFormatted: RoverPhoto[] = [
   {
@@ -235,4 +233,15 @@ export const mockRoverPhotosRaw: RoverPhotoRaw[] = [
       ]
     }
   }
-]
+];
+
+export const mockSingleRoverPhoto: RoverPhoto = {
+  id: 1228204,
+  name: "Curiosity",
+  roverName: "curiosity",
+  imgSrc: "https://mars.nasa.gov/msl-raw-images/msss/04102/mhli/4102MH0001530001404334U01_DXXX.jpg",
+  earthDate: "2024-02-19",
+  sol: 4102,
+  cameraName: "MAHLI",
+  cameraFullName: "Mars Hand Lens Imager"
+}

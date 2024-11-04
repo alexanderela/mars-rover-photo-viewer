@@ -1,17 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { Header } from "./Header";
-import { render, screen } from "../../tests/test-utils";
-import { MemoryRouter } from "react-router-dom";
+import { render, waitFor } from "../../tests/test-utils";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { routesConfig } from "../../app/router";
 
 describe("<Header />", () => {
-  it("renders Header component", () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
-    const element = screen.getByText(/Mars Rover Photo Viewer/i);
-    expect(element).toBeInTheDocument()
-    expect(element).toMatchSnapshot();
+  it("renders Header component", async () => {
+    const router = createMemoryRouter(routesConfig, {
+      initialEntries: ["/", "/rovers/curiosity?page=1"],
+      initialIndex: 1
+    });
+    const result = render(<RouterProvider router={router} />)
+
+    await waitFor(() => {
+      const element = result.getByTestId(/Header/i);
+      expect(element).toBeInTheDocument();
+      expect(element).toMatchSnapshot();
+    })
   });
 });

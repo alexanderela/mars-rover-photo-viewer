@@ -8,13 +8,15 @@ import { HandleSetRoverPhotosProps } from "../../../api/types";
 const initialState = {
   photos: {},
   isLoading: false,
-  totalPhotos: 0
+  totalPhotos: 0,
+  error: "",
 };
 
 export interface State {
   photos: RoverPhotoStateObj;
   isLoading: boolean;
   totalPhotos: number;
+  error: string;
 }
 
 export const roverPhotosSlice = createSlice({
@@ -32,6 +34,10 @@ export const roverPhotosSlice = createSlice({
     setTotalPhotos: (state, action: PayloadAction<number>): State => {
       state.totalPhotos = action.payload;
       return state;
+    },
+    setError: (state, action: PayloadAction<string>): State => {
+      state.error = action.payload;
+      return state
     }
   }
 });
@@ -55,11 +61,13 @@ export const handleSetRoverPhotos = ({ rover, page }: HandleSetRoverPhotosProps)
       dispatch(setPhotos(roverPhotos));
 
       dispatch(setIsLoading(false));
-    } catch(err) {
-      console.warn(err);
+      dispatch(setError(""));
+    } catch(error) {
+      console.warn(error);
+      dispatch(setError("Photo request failed.  Please check URL and try again."))
     }
   }
 };
 
-export const { setPhotos, setIsLoading, setTotalPhotos } = roverPhotosSlice.actions;
+export const { setPhotos, setIsLoading, setTotalPhotos, setError } = roverPhotosSlice.actions;
 export default roverPhotosSlice.reducer;

@@ -27,7 +27,7 @@ export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
           borderRadius: theme.spacing(1),
         }
       }}
-      data-testid="EnlargedPhotoViewer"
+      data-testId="EnlargedPhotoViewer"
     >
       <Box
         sx={{
@@ -38,7 +38,7 @@ export const EnlargedPhotoViewer = memo(function EnlargedPhotoViewer() {
           backgroundSize: "cover",
           cursor: "pointer",
         }}
-      >{parsedId}</Box>
+      />
     </Dialog>
   );
 });

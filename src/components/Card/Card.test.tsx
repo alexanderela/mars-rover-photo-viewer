@@ -23,9 +23,9 @@ describe("<Card />", () => {
         path: "/rovers/curiosity",
         element: <Card photo={mockSingleRoverPhoto} />
       }
-    ]
+    ];
     const router = createMemoryRouter(routes, {
-      initialEntries: ["/", "/rovers/curiosity"],
+      initialEntries: ["/", "/rovers/curiosity?page=1"],
       initialIndex: 1
     });
     const result = render(<RouterProvider router={router} />);

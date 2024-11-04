@@ -1,17 +1,20 @@
 import { describe, expect, it } from "vitest";
-import App from "./App";
-import { render, screen } from "../tests/test-utils";
-import { MemoryRouter } from "react-router-dom";
+import { render, waitFor } from "../tests/test-utils";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { routesConfig } from "./router";
 
 describe("<App />", () => {
-  it("renders App component", () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
-    const element = screen.getByTestId(/App/i);
-    expect(element).toBeInTheDocument();
-    expect(element).toMatchSnapshot();
+  it("renders App component", async () => {
+    const router = createMemoryRouter(routesConfig, {
+      initialEntries: ["/", "/rovers/curiosity?page=1"],
+      initialIndex: 1
+    })
+    const result = render(<RouterProvider router={router} />)
+
+    await waitFor(() => {
+      const element = result.getByTestId(/App/i);
+      expect(element).toBeInTheDocument();
+      expect(element).toMatchSnapshot();
+    })
   });
 });

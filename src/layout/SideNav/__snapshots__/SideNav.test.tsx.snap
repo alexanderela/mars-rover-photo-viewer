@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<SideNav > renders SideNav component 1`] = `
+<div
+  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-1 css-pvedf0-MuiGrid2-root"
+  data-testid="SideNav"
+/>
+`;

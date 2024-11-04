@@ -30,6 +30,7 @@ export const Card = memo(function Card({ photo }: CardProps) {
         backgroundSize: "cover",
         cursor: "pointer"
       }}
+      data-testid="Card"
     />
   );
 });

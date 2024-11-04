@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Header /> > renders Header component 1`] = `
+<div
+  class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1obpxxd-MuiGrid2-root"
+  data-testid="Header"
+>
+  <h5
+    class="MuiTypography-root MuiTypography-h5 css-qtfspc-MuiTypography-root"
+  >
+    Mars Rover Photo Viewer
+  </h5>
+  <div
+    class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1ssg4ni-MuiAvatar-root"
+  >
+    U
+  </div>
+</div>
+`;

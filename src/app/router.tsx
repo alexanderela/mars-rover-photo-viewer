@@ -2,7 +2,7 @@ import {
   createBrowserRouter,
   redirect,
 } from "react-router-dom";
-import { EnlargedPhotoViewer } from "../features/EnlargedPhotoViewer";
+import { EnlargedPhotoViewer } from "../features/photos/EnlargedPhotoViewer";
 
 export const routesConfig = [
   {

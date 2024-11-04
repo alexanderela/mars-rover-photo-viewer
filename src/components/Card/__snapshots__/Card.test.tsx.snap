@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Card /> > renders Card component 1`] = `
+<div
+  class="MuiBox-root css-1x1ddkk"
+  data-testid="Card"
+/>
+`;

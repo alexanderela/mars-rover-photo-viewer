@@ -7,6 +7,7 @@ export const SideNav = () => {
       sx={{
         // height: "100%",
       }}
+      data-testid="SideNav"
     ></Grid>
   );
 };

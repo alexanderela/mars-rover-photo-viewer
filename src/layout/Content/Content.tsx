@@ -43,6 +43,7 @@ export const Content = () => {
         height: "100vh",
         overflow: "scroll",
       }}
+      data-testid="Content"
     >
       <Box
         sx={{
@@ -90,6 +91,7 @@ export const Content = () => {
               color: "#B8B4B4"
             }
           }}
+          data-testid="CircularProgressLoader"
         />
         :
         <Outlet />

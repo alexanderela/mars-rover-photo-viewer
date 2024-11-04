@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { render, waitFor } from "../../tests/test-utils";
+import { render, waitFor } from "../tests/test-utils";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { routesConfig } from "../../app/router";
+import { routesConfig } from "./router";
 
-describe("<SideNav", () => {
-  it("renders SideNav component", async () => {
+describe("<App />", () => {
+  it("renders App component", async () => {
     const router = createMemoryRouter(routesConfig, {
       initialEntries: ["/", "/rovers/curiosity?page=1"],
       initialIndex: 1
@@ -12,7 +12,7 @@ describe("<SideNav", () => {
     const result = render(<RouterProvider router={router} />)
 
     await waitFor(() => {
-      const element = result.getByTestId(/SideNav/i);
+      const element = result.getByTestId(/App/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();
     })

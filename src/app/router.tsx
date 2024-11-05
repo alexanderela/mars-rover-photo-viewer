@@ -14,15 +14,15 @@ export const routesConfig = [
         element: (
           <App />
         ),
-      }
+      };
     },
     children: [
       {
         index: true,
-        loader: async () => redirect("rovers/curiosity?page=1")
+        loader: async () => redirect("photos/rovers/curiosity?page=1")
       },
       {
-        path: "rovers/:rover",
+        path: "photos/rovers/:rover",
         lazy: async () => {
           const { PhotoViewer } = await import("../features/photos/PhotoViewer");
     
@@ -30,13 +30,31 @@ export const routesConfig = [
             element: (
               <PhotoViewer />
             )
-          }
+          };
         },
         children: [
           {
             path: "id/:id",
             element: <EnlargedPhotoViewer />
-          }
+          },
+        ]
+      },
+      {
+        path: "favorites",
+        lazy: async () => {
+          const { FavoritesViewer } = await import("../features/favorites/FavoritesViewer");
+    
+          return {
+            element: (
+              <FavoritesViewer />
+            )
+          };
+        },
+        children: [
+          {
+            path: "id/:id",
+            element: <EnlargedPhotoViewer />
+          },
         ]
       },
     ]

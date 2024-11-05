@@ -18,7 +18,7 @@ export const Content = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
 
-  const handleSelectRoverRoute = useCallback((e: React.SyntheticEvent, newRover: Rover) => {
+  const handleSelectRoverRoute = useCallback((_e: React.SyntheticEvent, newRover: Rover) => {
     navigate(`rovers/${newRover}?page=1`);
   }, [navigate]);
 

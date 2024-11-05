@@ -8,8 +8,8 @@ import { useLocation } from "react-router-dom";
 
 export const LocationDisplay = () => {
   const location = useLocation();
-  return <div data-testid="location-display">{location.pathname}</div>
-}
+  return <div data-testid="location-display">{location.pathname}</div>;
+};
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: Partial<RootState>;
@@ -33,13 +33,13 @@ const customRender = (
           {children}
         </ThemeProvider>
       </Provider>
-    )
-  }
+    );
+  };
 
   return {
     store,
     ...render(ui, { wrapper, ...renderOptions })
-  }
+  };
 };
 
 export * from "@testing-library/react";

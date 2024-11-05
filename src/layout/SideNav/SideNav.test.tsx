@@ -6,7 +6,7 @@ import { routesConfig } from "../../app/router";
 describe("<SideNav", () => {
   it("renders SideNav component", async () => {
     const router = createMemoryRouter(routesConfig, {
-      initialEntries: ["/", "/rovers/curiosity?page=1"],
+      initialEntries: ["/", "/photos/rovers/curiosity?page=1"],
       initialIndex: 1
     });
     const result = render(<RouterProvider router={router} />)

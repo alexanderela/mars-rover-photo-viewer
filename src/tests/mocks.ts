@@ -11,7 +11,8 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "FHAZ",
-    cameraFullName: "Front Hazard Avoidance Camera"
+    cameraFullName: "Front Hazard Avoidance Camera",
+    isFavorite: false
   },
   1228213: {
     id: 1228213,
@@ -21,7 +22,8 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "FHAZ",
-    cameraFullName: "Front Hazard Avoidance Camera"
+    cameraFullName: "Front Hazard Avoidance Camera",
+    isFavorite: false
   },
   1228214: {
     id: 1228214,
@@ -31,7 +33,8 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "RHAZ",
-    cameraFullName: "Rear Hazard Avoidance Camera"
+    cameraFullName: "Rear Hazard Avoidance Camera",
+    isFavorite: false
   }
 };
 
@@ -53,7 +56,8 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "FHAZ",
-    cameraFullName: "Front Hazard Avoidance Camera"
+    cameraFullName: "Front Hazard Avoidance Camera",
+    isFavorite: false
   },
   {
     id: 1228213,
@@ -63,7 +67,8 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "FHAZ",
-    cameraFullName: "Front Hazard Avoidance Camera"
+    cameraFullName: "Front Hazard Avoidance Camera",
+    isFavorite: false
   },
   {
     id: 1228214,
@@ -73,7 +78,8 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     earthDate: "2024-02-19",
     sol: 4102,
     cameraName: "RHAZ",
-    cameraFullName: "Rear Hazard Avoidance Camera"
+    cameraFullName: "Rear Hazard Avoidance Camera",
+    isFavorite: false
   }
 ];
 
@@ -244,5 +250,6 @@ export const mockSingleRoverPhoto: RoverPhoto = {
   earthDate: "2024-02-19",
   sol: 4102,
   cameraName: "MAHLI",
-  cameraFullName: "Mars Hand Lens Imager"
+  cameraFullName: "Mars Hand Lens Imager",
+  isFavorite: false
 };

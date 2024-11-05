@@ -1,4 +1,6 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { RoverPhoto } from "../../types/common";
 import { memo, useCallback } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -28,9 +30,22 @@ export const Card = memo(function Card({ photo }: CardProps) {
         margin: `${theme.spacing(1)} ${theme.spacing(2)}`,
         backgroundImage: `url(${photo.imgSrc})`,
         backgroundSize: "cover",
-        cursor: "pointer"
+        cursor: "pointer",
+        position: "relative"
       }}
       data-testid="Card"
-    />
+    >
+      <IconButton 
+        aria-label="favorite"
+        sx={{
+          position: "absolute",
+          right: (theme) => theme.spacing(0.25),
+          bottom: (theme) => theme.spacing(0.25),
+          color: "oldlace"
+        }}
+      >
+        { photo.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
+      </IconButton>
+    </Box>
   );
 });

@@ -22,7 +22,7 @@ export const Content = () => {
     navigate(`rovers/${newRover}?page=1`);
   }, [navigate]);
 
-  const handleChangePage = useCallback((e: React.ChangeEvent<unknown>, newPage: number) => {
+  const handleChangePage = useCallback((_e: React.ChangeEvent<unknown>, newPage: number) => {
     setSearchParams({ page: newPage.toString() });
   }, [setSearchParams]);
 

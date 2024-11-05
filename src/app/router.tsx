@@ -3,6 +3,7 @@ import {
   redirect,
 } from "react-router-dom";
 import { EnlargedPhotoViewer } from "../features/photos/EnlargedPhotoViewer";
+import { Typography } from "@mui/material";
 
 export const routesConfig = [
   {
@@ -56,6 +57,10 @@ export const routesConfig = [
             element: <EnlargedPhotoViewer />
           },
         ]
+      },
+      {
+        path: "map",
+        element: <Typography sx={{ color: "#F4EDED" }}>Coming Soon...</Typography>
       },
     ]
   },

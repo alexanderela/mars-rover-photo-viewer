@@ -33,7 +33,7 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     cameraName: "RHAZ",
     cameraFullName: "Rear Hazard Avoidance Camera"
   }
-}
+};
 
 export const mockPreloadedState: Partial<RootState> = {
   roverPhotos: {
@@ -245,4 +245,4 @@ export const mockSingleRoverPhoto: RoverPhoto = {
   sol: 4102,
   cameraName: "MAHLI",
   cameraFullName: "Mars Hand Lens Imager"
-}
+};

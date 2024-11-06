@@ -9,12 +9,12 @@ describe("<SideNav", () => {
       initialEntries: ["/", "/photos/rovers/curiosity?page=1"],
       initialIndex: 1
     });
-    const result = render(<RouterProvider router={router} />)
+    const result = render(<RouterProvider router={router} />);
 
     await waitFor(() => {
       const element = result.getByTestId(/SideNav/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();
-    })
+    });
   });
 });

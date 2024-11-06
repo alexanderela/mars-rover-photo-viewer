@@ -10,7 +10,7 @@ export const StyledIconButton = styled(IconButton)(({ theme }) => ({
 }));
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
-  fontSize: theme.spacing(1.75),
+  fontSize: theme.spacing(1.65),
   color: "#F4EDED"
 }));
 

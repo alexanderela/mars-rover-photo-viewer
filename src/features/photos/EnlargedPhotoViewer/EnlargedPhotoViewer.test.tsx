@@ -11,7 +11,7 @@ describe("<EnlargedPhotoViewer />", () => {
   
   it("renders EnlargedPhotoViewer component", async () => {
     const router = createMemoryRouter(routesConfig, {
-      initialEntries: [ "/rovers/curiosity/id/1228212?page=1"],
+      initialEntries: [ "/photos/rovers/curiosity/id/1228212?page=1"],
     });
     
     const result = render(<RouterProvider router={router} />, {
@@ -19,7 +19,7 @@ describe("<EnlargedPhotoViewer />", () => {
     });
 
     await waitFor(() => {
-      console.log("window.location.pathname: ", window.location.pathname)
+      console.log("window.location.pathname: ", window.location.pathname);
       const element = result.getByTestId(/EnlargedPhotoViewer/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();

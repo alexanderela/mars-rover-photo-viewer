@@ -31,8 +31,14 @@ export default [
       "react-hooks/exhaustive-deps": "warn",
       "indent": ["error", 2],
       "quotes": ["error", "double", { "avoidEscape": true }],
-      "semi": ["error", "always"]
-    }
+      "semi": ["error", "always"],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    },
   },
   {
     plugins: {

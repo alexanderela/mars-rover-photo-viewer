@@ -57,7 +57,8 @@ export const formatRoverPhotosData = async (roverPhotos: RoverPhotoRaw[]): Promi
         earthDate: roverPhoto.earth_date,
         sol: roverPhoto.sol,
         cameraName: roverPhoto.camera.name,
-        cameraFullName: roverPhoto.camera.full_name
+        cameraFullName: roverPhoto.camera.full_name,
+        isFavorite: null
       };
     });
   
@@ -70,7 +71,7 @@ export const formatRoverPhotosData = async (roverPhotos: RoverPhotoRaw[]): Promi
 // Functions for fetching favorite photos from backend API
 export const getFavoritesPhotos = async (): Promise<RoverPhoto[]> => {
   try {
-    const response = await fetch(`${backendURL}/favorites`);
+    const response = await fetch(`${backendURL}api/v1/favorites`);
     const favoritePhotos = await response.json();
     return favoritePhotos;
   } catch (error) {
@@ -80,7 +81,7 @@ export const getFavoritesPhotos = async (): Promise<RoverPhoto[]> => {
 
 export const addFavoritePhoto = async (favoritePhoto: RoverPhoto): Promise<{ id: number }> => {
   try {
-    const response = await fetch(`${backendURL}/favorites/new`, {
+    const response = await fetch(`${backendURL}api/v1/favorites/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -93,7 +94,8 @@ export const addFavoritePhoto = async (favoritePhoto: RoverPhoto): Promise<{ id:
         earthDate: favoritePhoto.earthDate,
         sol: favoritePhoto.sol,
         cameraName: favoritePhoto.cameraName,
-        cameraFullName: favoritePhoto.cameraFullName
+        cameraFullName: favoritePhoto.cameraFullName,
+        isFavorite: favoritePhoto.isFavorite
       })
     });
   
@@ -105,7 +107,22 @@ export const addFavoritePhoto = async (favoritePhoto: RoverPhoto): Promise<{ id:
 
 export const deleteFavoritePhoto = async (favoritePhotoId: number): Promise<{ message: string }> => {
   try {
-    const response = await fetch(`${backendURL}/favorites/${favoritePhotoId}`, {
+    const response = await fetch(`${backendURL}api/v1/favorites/${favoritePhotoId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+  
+    return response.json();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const deleteAllFavoritePhotos = async (): Promise<{ message: string }> => {
+  try {
+    const response = await fetch(`${backendURL}api/v1/favorites`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

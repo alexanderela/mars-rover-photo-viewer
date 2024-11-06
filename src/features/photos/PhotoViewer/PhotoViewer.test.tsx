@@ -15,6 +15,6 @@ describe("<PhotoViewer", () => {
       const element = result.getByTestId(/PhotoViewer/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();
-    })
+    });
   });
 });

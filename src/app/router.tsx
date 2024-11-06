@@ -41,7 +41,7 @@ export const routesConfig = [
         ]
       },
       {
-        path: "favorites",
+        path: "favorites/rovers/:rover",
         lazy: async () => {
           const { FavoritesViewer } = await import("../features/favorites/FavoritesViewer");
     

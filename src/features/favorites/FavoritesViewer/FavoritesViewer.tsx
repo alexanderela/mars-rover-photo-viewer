@@ -1,14 +1,19 @@
 import Grid from "@mui/material/Grid2";
+// import { useAppSelector } from "../../../app/hooks";
+// import { Card } from "../../../components/Card";
+import { memo, useMemo } from "react";
+// import { RoverPhoto, RoverPhotoStateObj } from "../../../types/common";
+import { Outlet } from "react-router-dom";
+import { RoverPhoto, RoverPhotoStateObj } from "../../../types/common";
 import { useAppSelector } from "../../../app/hooks";
 import { Card } from "../../../components/Card";
-import { memo } from "react";
-import { RoverPhoto, RoverPhotoStateObj } from "../../../types/common";
-import { Outlet } from "react-router-dom";
 
 export const FavoritesViewer = memo(function FavoritesViewer() {
-  const favoriteRoverPhotos = useAppSelector(state => {
-    return Object.entries(state.roverPhotos.photos as RoverPhotoStateObj).filter((entry) => entry[1].isFavorite);
-  });
+  const roverPhotos = useAppSelector(state => state.roverPhotos.photos);
+  
+  const favoriteRoverPhotos = useMemo(() => {
+    return Object.entries(roverPhotos as RoverPhotoStateObj).filter((entry) => entry[1].isFavorite);
+  }, [roverPhotos]);
   
   return (
     <Grid

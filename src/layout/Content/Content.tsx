@@ -6,7 +6,7 @@ import { handleSetRoverPhotos } from "../../features/photos/PhotoViewer/photoVie
 import { Rover } from "../../types/common";
 import { Pagination } from "@mui/material";
 import { useCallback, useEffect } from "react";
-import { Outlet, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export const Content = () => {
   const dispatch = useAppDispatch();
@@ -17,9 +17,10 @@ export const Content = () => {
   const { rover } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
+  const location = useLocation();
 
   const handleSelectRoverRoute = useCallback((_e: React.SyntheticEvent, newRover: Rover) => {
-    navigate(`rovers/${newRover}?page=1`);
+    navigate(`photos/rovers/${newRover}?page=1`);
   }, [navigate]);
 
   const handleChangePage = useCallback((_e: React.ChangeEvent<unknown>, newPage: number) => {
@@ -68,19 +69,21 @@ export const Content = () => {
           <StyledTab label="Opportunity" value="opportunity" />
           <StyledTab label="Spirit" value="spirit" />
         </Tabs>
-        <Pagination
-          count={Math.ceil(totalPhotos / 25)}
-          page={parseInt(page as string)}
-          shape="rounded" 
-          onChange={handleChangePage}
-          sx={{
-            "&.MuiPagination-root": {
-              button: {
-                color: "#F4EDED"
-              },
-            }
-          }}
-        />
+        {!location.pathname.includes("favorites") && (
+          <Pagination
+            count={Math.ceil(totalPhotos / 25)}
+            page={parseInt(page as string)}
+            shape="rounded" 
+            onChange={handleChangePage}
+            sx={{
+              "&.MuiPagination-root": {
+                button: {
+                  color: "#F4EDED"
+                },
+              }
+            }}
+          />
+        )}
       </Box>
       { isLoading ?
         <CircularProgress 

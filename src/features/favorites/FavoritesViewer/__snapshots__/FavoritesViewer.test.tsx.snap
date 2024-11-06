@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<FavoritesViewer /> > renders FavoritesViewer component 1`] = `
+<div
+  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-irsnvt-MuiGrid2-root"
+  data-testid="FavoritesViewer"
+/>
+`;

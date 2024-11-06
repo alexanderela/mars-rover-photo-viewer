@@ -48,7 +48,7 @@ export const SideNav = () => {
         <StyledIconButton 
           aria-label="favorite photos"
           value="favorites"
-          onClick={() => navigate("favorites")}
+          onClick={() => navigate("favorites/rovers/curiosity?page=1")}
         >
           <FavoriteIcon fontSize="large" />
         </StyledIconButton>

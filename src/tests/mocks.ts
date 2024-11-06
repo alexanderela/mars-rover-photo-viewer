@@ -12,7 +12,7 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     sol: 4102,
     cameraName: "FHAZ",
     cameraFullName: "Front Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   },
   1228213: {
     id: 1228213,
@@ -23,7 +23,7 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     sol: 4102,
     cameraName: "FHAZ",
     cameraFullName: "Front Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   },
   1228214: {
     id: 1228214,
@@ -34,7 +34,7 @@ export const mockRoverPhotosState: RoverPhotoStateObj = {
     sol: 4102,
     cameraName: "RHAZ",
     cameraFullName: "Rear Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   }
 };
 
@@ -57,7 +57,7 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     sol: 4102,
     cameraName: "FHAZ",
     cameraFullName: "Front Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   },
   {
     id: 1228213,
@@ -68,7 +68,7 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     sol: 4102,
     cameraName: "FHAZ",
     cameraFullName: "Front Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   },
   {
     id: 1228214,
@@ -79,7 +79,7 @@ export const mockRoverPhotosFormatted: RoverPhoto[] = [
     sol: 4102,
     cameraName: "RHAZ",
     cameraFullName: "Rear Hazard Avoidance Camera",
-    isFavorite: false
+    isFavorite: null
   }
 ];
 
@@ -251,5 +251,5 @@ export const mockSingleRoverPhoto: RoverPhoto = {
   sol: 4102,
   cameraName: "MAHLI",
   cameraFullName: "Mars Hand Lens Imager",
-  isFavorite: false
+  isFavorite: null
 };

@@ -6,7 +6,7 @@ import { mockRoverPhotosRaw } from "../../tests/mocks";
 
 describe("<Content />", () => {
   afterEach(() => {
-    vi.restoreAllMocks()
+    vi.restoreAllMocks();
   });
 
   it("renders Content component", async () => {
@@ -20,7 +20,7 @@ describe("<Content />", () => {
       const element = result.getByTestId(/Content/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();
-    })
+    });
   });
 
   // Integration test that verifies that the correct component is shown when photos are successfully fetched.
@@ -48,6 +48,6 @@ describe("<Content />", () => {
       expect(result.getByTestId(/Content/i)).toBeInTheDocument();
       expect(result.queryByTestId(/CircularProgressLoader/i)).not.toBeInTheDocument();
       expect(result.getByTestId(/PhotoViewer/i)).toBeInTheDocument();
-    })
+    });
   });
 });

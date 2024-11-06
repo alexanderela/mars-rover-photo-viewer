@@ -3,7 +3,6 @@ import { Card } from "./Card";
 import { render, screen, fireEvent } from "../../tests/test-utils";
 import { RoverPhoto } from "../../types/common";
 import { createMemoryRouter, MemoryRouter, RouterProvider } from "react-router-dom";
-import { routesConfig } from "../../app/router";
 import { act } from "react";
 
 const mockPhoto: RoverPhoto = {
@@ -14,8 +13,9 @@ const mockPhoto: RoverPhoto = {
   earthDate: "2024-02-19",
   sol: 4102,
   cameraName: "MAHLI",
-  cameraFullName: "Mars Hand Lens Imager"
-}
+  cameraFullName: "Mars Hand Lens Imager",
+  isFavorite: null
+};
 
 describe("<Card />", () => {
   it("renders Card component", () => {
@@ -35,18 +35,18 @@ describe("<Card />", () => {
         path: "/rovers/curiosity",
         element: <Card photo={mockPhoto} />
       }
-    ]
+    ];
     const router = createMemoryRouter(routes, {
       initialEntries: ["/", "/rovers/curiosity"],
       initialIndex: 1
     });
     const result = render(<RouterProvider router={router} />);
     const element = result.getByTestId(/Card/i);
-    expect(router.state.location.pathname).toEqual("/rovers/curiosity")
+    expect(router.state.location.pathname).toEqual("/rovers/curiosity");
     act(() => {
       fireEvent.click(element);
-    })
-    expect(router.state.location.pathname).toEqual("/rovers/curiosity/id/1228204")
+    });
+    expect(router.state.location.pathname).toEqual("/rovers/curiosity/id/1228204");
 
   });
 });

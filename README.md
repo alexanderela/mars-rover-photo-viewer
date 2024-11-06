@@ -8,6 +8,14 @@ This project is a simple application to view photos from the different rovers on
   * Clone down this repo and run `npm install`
   * Run `npm run dev` - visit `http://localhost:5173`
 
+  ## Deployed App
+[Mars Rover Photo Viewer Front End](https://mars-rover-photo-viewer.netlify.app/)
+
+[Mars Rover Photo Viewer Back End](https://mars-rover-photo-viewer-be-f769ac5110ad.herokuapp.com)
+
+#### Back End Repo
+[Mars Rover Photo Viewer Back End](https://github.com/alexanderela/mars-rover-photo-viewer-backend)
+
 ## Iterations
 
 ### Iteration 0: Mockups and Basic Photo Viewer Dashboard

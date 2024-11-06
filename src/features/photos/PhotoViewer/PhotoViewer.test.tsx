@@ -6,7 +6,7 @@ import { routesConfig } from "../../../app/router";
 describe("<PhotoViewer", () => {
   it("renders PhotoViewer component", async () => {
     const router = createMemoryRouter(routesConfig, {
-      initialEntries: ["/rovers/curiosity?page=1"],
+      initialEntries: ["/photos/rovers/curiosity?page=1"],
     });
 
     const result = render(<RouterProvider router={router} />);
@@ -15,6 +15,6 @@ describe("<PhotoViewer", () => {
       const element = result.getByTestId(/PhotoViewer/i);
       expect(element).toBeInTheDocument();
       expect(element).toMatchSnapshot();
-    })
+    });
   });
 });

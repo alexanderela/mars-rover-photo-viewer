@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid2";
 import { useAppSelector } from "../../../app/hooks";
-import { Card } from "../../../components/Card"
+import { Card } from "../../../components/Card";
 import { memo } from "react";
 import { RoverPhoto } from "../../../types/common";
 import { Outlet } from "react-router-dom";
@@ -27,9 +27,9 @@ export const PhotoViewer = memo(function PhotoViewer() {
               key={key}
               photo={val as RoverPhoto}
             />
-          )
+          );
         })
       }
     </Grid>
-  )
+  );
 });

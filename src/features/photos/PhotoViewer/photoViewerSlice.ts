@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RoverPhotoStateObj } from "../../../types/common";
-import { fetchRoverPhotos, fetchTotalNumberOfRoverPhotos } from "../../../api/API";
+import { RoverPhoto, RoverPhotoStateObj } from "../../../types/common";
+import { addFavoritePhoto, deleteAllFavoritePhotos, deleteFavoritePhoto, fetchRoverPhotos, fetchTotalNumberOfRoverPhotos, getFavoritesPhotos } from "../../../api/API";
 import { HandleSetRoverPhotosProps } from "../../../api/types";
 
 const initialState = {
@@ -30,7 +30,25 @@ export const handleSetRoverPhotos = createAsyncThunk("roverPhotos/setPhotos", as
 
   const roverPhotosUrl: string = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?page=${page || "1"}&api_key=${import.meta.env.VITE_NASA_API_KEY}`;
   const photos = await fetchRoverPhotos({ url: roverPhotosUrl });
+
+  await deleteAllFavoritePhotos();
+
   return { photos, totalPhotos };
+});
+
+export const handleToggleRoverPhotoFavorites = createAsyncThunk("roverPhotos/setFavorites", async (photo: RoverPhoto) => {
+  if(photo.isFavorite !== null || photo.isFavorite) {
+    photo = { ...photo, isFavorite: false };
+    await deleteFavoritePhoto(photo.id);
+  } else if(photo.isFavorite === null || !photo.isFavorite) {
+    photo = { ...photo, isFavorite: true };
+    await addFavoritePhoto(photo);
+  }
+  return { photo };
+});
+
+export const handleGetRoverPhotoFavorites = createAsyncThunk("roverPhotos/getFavorites", async () => {
+  return await getFavoritesPhotos();
 });
 
 export const roverPhotosSlice = createSlice({
@@ -52,6 +70,17 @@ export const roverPhotosSlice = createSlice({
       state.photos = photos;
       state.totalPhotos = totalPhotos;
       state.isLoading = false;
+    });
+    builder.addCase(handleToggleRoverPhotoFavorites.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message || defaultSetRoverPhotosError;
+    });
+    builder.addCase(handleToggleRoverPhotoFavorites.fulfilled, (state, action) => {
+      const { photo } = action.payload;
+      state.photos = {
+        ...state.photos,
+        [photo.id]: photo
+      };
     });
   }
 });

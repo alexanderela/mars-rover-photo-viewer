@@ -17,6 +17,7 @@ export interface RoverPhoto {
   sol: number;
   cameraName: string;
   cameraFullName: string;
+  isFavorite: boolean | null;
 }
 
 export interface RoverPhotoStateObj {

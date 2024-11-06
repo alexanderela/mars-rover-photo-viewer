@@ -2,6 +2,9 @@ import {  RoverPhoto, RoverPhotoStateObj } from "../types/common";
 import { FetchRoverProps, RoverPhotoRaw } from "../api/types";
 import { convertPhotoArrayToObj } from "../utils/ArrayUtils";
 
+export const backendURL = "https://mars-rover-photo-viewer-be-f769ac5110ad.herokuapp.com/";
+
+// Functions for fetching data from NASA Mars Rover Photos API
 export const fetchRoverPhotoData = async ({
   url,
   options = {},
@@ -54,7 +57,8 @@ export const formatRoverPhotosData = async (roverPhotos: RoverPhotoRaw[]): Promi
         earthDate: roverPhoto.earth_date,
         sol: roverPhoto.sol,
         cameraName: roverPhoto.camera.name,
-        cameraFullName: roverPhoto.camera.full_name
+        cameraFullName: roverPhoto.camera.full_name,
+        isFavorite: null
       };
     });
   
@@ -62,4 +66,71 @@ export const formatRoverPhotosData = async (roverPhotos: RoverPhotoRaw[]): Promi
   } catch(error) {
     return Promise.reject(error);
   }
-}
+};
+
+// Functions for fetching favorite photos from backend API
+export const getFavoritesPhotos = async (): Promise<RoverPhoto[]> => {
+  try {
+    const response = await fetch(`${backendURL}api/v1/favorites`);
+    const favoritePhotos = await response.json();
+    return favoritePhotos;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const addFavoritePhoto = async (favoritePhoto: RoverPhoto): Promise<{ id: number }> => {
+  try {
+    const response = await fetch(`${backendURL}api/v1/favorites/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: favoritePhoto.id,
+        name: favoritePhoto.name,
+        roverName: favoritePhoto.roverName,
+        imgSrc: favoritePhoto.imgSrc,
+        earthDate: favoritePhoto.earthDate,
+        sol: favoritePhoto.sol,
+        cameraName: favoritePhoto.cameraName,
+        cameraFullName: favoritePhoto.cameraFullName,
+        isFavorite: favoritePhoto.isFavorite
+      })
+    });
+  
+    return response.json();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const deleteFavoritePhoto = async (favoritePhotoId: number): Promise<{ message: string }> => {
+  try {
+    const response = await fetch(`${backendURL}api/v1/favorites/${favoritePhotoId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+  
+    return response.json();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const deleteAllFavoritePhotos = async (): Promise<{ message: string }> => {
+  try {
+    const response = await fetch(`${backendURL}api/v1/favorites`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+  
+    return response.json();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};

@@ -11,7 +11,7 @@ describe("<Content />", () => {
 
   it("renders Content component", async () => {
     const router = createMemoryRouter(routesConfig, {
-      initialEntries: ["/", "/rovers/curiosity?page=1"],
+      initialEntries: ["/", "/photos/rovers/curiosity?page=1"],
       initialIndex: 1
     });
     const result = render(<RouterProvider router={router} />);
@@ -26,7 +26,7 @@ describe("<Content />", () => {
   // Integration test that verifies that the correct component is shown when photos are successfully fetched.
   it("fetches and receives rover photos after navigating to correct route", async () => {
     const router = createMemoryRouter(routesConfig, {
-      initialEntries: ["/", "/rovers/curiosity?page=1"],
+      initialEntries: ["/", "/photos/rovers/curiosity?page=1"],
     });
     const result = render(<RouterProvider router={router} />);
 

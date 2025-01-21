@@ -19,16 +19,16 @@ export const SideNav = () => {
       }}
       data-testid="SideNav"
     >
-      <StyledButtonContainer >
+      <StyledButtonContainer>
         <StyledIconButton
           aria-label="rover photos"
           onClick={() => navigate("photos/rovers/curiosity?page=1")}
         >
           <PhotoLibraryIcon fontSize="large" />
-        </StyledIconButton>
-        <StyledTypography variant="body2">
+          <StyledTypography variant="body2">
           Rover Photos
-        </StyledTypography>
+          </StyledTypography>
+        </StyledIconButton>
       </StyledButtonContainer>
 
       <StyledButtonContainer>

@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { RoverPhoto } from "../../types/common";
@@ -8,6 +8,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { handleToggleRoverPhotoFavorites } from "../../features/photos/PhotoViewer/photoViewerSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
+import { StyledFavoriteButton } from "./Card-styled";
 
 interface CardProps {
   photo: RoverPhoto;
@@ -49,17 +50,10 @@ export const Card = memo(function Card({ photo }: CardProps) {
       }}
       data-testid="Card"
     >
-      <IconButton 
+      <StyledFavoriteButton 
         aria-label="favorite"
-        // data-testid="favorite"
+        data-testid="favorite"
         id="favorite"
-        sx={{
-          position: "absolute",
-          right: (theme) => theme.spacing(0.25),
-          bottom: (theme) => theme.spacing(0.25),
-          color: "oldlace",
-          zIndex: 10
-        }}
         onClick={(e) => handleToggleFavorite(e)}
       >
         { 
@@ -67,7 +61,7 @@ export const Card = memo(function Card({ photo }: CardProps) {
             <FavoriteIcon data-testid="favorite" /> : 
             <FavoriteBorderIcon data-testid="favorite" /> 
         }
-      </IconButton>
+      </StyledFavoriteButton>
     </Box>
   );
 });

@@ -6,16 +6,20 @@ export const StyledIconButton = styled(IconButton)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing(2),
-  cursor: "pointer"
+  cursor: "pointer",
+  "&:hover": {
+    color: "#E36414",
+    outline: "none",
+  }
 }));
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.65),
-  color: "#F4EDED"
+  color: "#F4EDED",
 }));
 
 export const StyledButtonContainer = styled(Box)(({
   display: "flex",
   flexDirection: "column",
-  margin: "0 auto"
+  margin: "0 auto",
 }));

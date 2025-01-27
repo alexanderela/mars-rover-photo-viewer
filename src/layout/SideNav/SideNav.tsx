@@ -24,18 +24,21 @@ export const SideNav = () => {
         label="Rover Photos"
         Icon={PhotoLibraryIcon}
         onClick={() => navigate("photos/rovers/curiosity?page=1")}
+        data-testid="SideNavButton-photos"
       />
       <SideNavButton
         name="rover map"
         label="Rover Map"
         Icon={MapIcon}
         onClick={() => navigate("map")}
+        data-testid="SideNavButton-map"
       />
       <SideNavButton
         name="rover favorites"
         label="Favorites"
         Icon={FavoriteIcon}
         onClick={() => navigate("favorites/rovers/curiosity?page=1")}
+        data-testid="SideNavButton-favorites"
       />
     </Grid>
   );

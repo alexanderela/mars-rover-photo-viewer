@@ -219,3 +219,221 @@ exports[`<App /> > renders App component 1`] = `
   </div>
 </div>
 `;
+
+exports[`<App /> > renders App component 2`] = `
+<div
+  class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1o5nixv-MuiGrid2-root"
+  data-testid="App"
+>
+  <div
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1obpxxd-MuiGrid2-root"
+    data-testid="Header"
+  >
+    <h5
+      class="MuiTypography-root MuiTypography-h5 css-qtfspc-MuiTypography-root"
+    >
+      Mars Rover Photo Viewer
+    </h5>
+    <div
+      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1ssg4ni-MuiAvatar-root"
+    >
+      U
+    </div>
+  </div>
+  <div
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-1 css-1ahra1l-MuiGrid2-root"
+    data-testid="SideNav"
+  >
+    <div
+      class="MuiBox-root css-11gtdaf"
+    >
+      <button
+        aria-label="rover photos"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-90p4nm-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-uks7c6-MuiSvgIcon-root"
+          data-testid="PhotoLibraryIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2m-11-4 2.03 2.71L16 11l4 5H8zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-1elpnu6-MuiTypography-root"
+        >
+          Rover Photos
+        </p>
+      </button>
+    </div>
+    <div
+      class="MuiBox-root css-11gtdaf"
+    >
+      <button
+        aria-label="rover map"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-90p4nm-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-uks7c6-MuiSvgIcon-root"
+          data-testid="MapIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-1elpnu6-MuiTypography-root"
+        >
+          Rover Map
+        </p>
+      </button>
+    </div>
+    <div
+      class="MuiBox-root css-11gtdaf"
+    >
+      <button
+        aria-label="rover favorites"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-90p4nm-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-uks7c6-MuiSvgIcon-root"
+          data-testid="FavoriteIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-1elpnu6-MuiTypography-root"
+        >
+          Favorites
+        </p>
+      </button>
+    </div>
+  </div>
+  <div
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-11 css-qvo7h4-MuiGrid2-root"
+    data-testid="Content"
+  >
+    <div
+      class="MuiBox-root css-1lekzkb"
+    >
+      <div
+        class="MuiTabs-root css-mz7c2a-MuiTabs-root"
+      >
+        <div
+          class="MuiTabs-scroller MuiTabs-fixed css-s2t35c-MuiTabs-scroller"
+          style="overflow: hidden; margin-bottom: 0px;"
+        >
+          <div
+            class="MuiTabs-flexContainer css-1wxkzlj-MuiTabs-flexContainer"
+            role="tablist"
+          >
+            <button
+              aria-selected="true"
+              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1sx2hv0-MuiButtonBase-root-MuiTab-root"
+              role="tab"
+              tabindex="0"
+              type="button"
+            >
+              Curiosity
+              <span
+                class="MuiTabs-indicator css-1tb7sr5-MuiTabs-indicator"
+                style="display: none;"
+              />
+            </button>
+            <button
+              aria-selected="false"
+              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1sx2hv0-MuiButtonBase-root-MuiTab-root"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              Opportunity
+            </button>
+            <button
+              aria-selected="false"
+              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1sx2hv0-MuiButtonBase-root-MuiTab-root"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              Spirit
+            </button>
+          </div>
+        </div>
+      </div>
+      <nav
+        aria-label="pagination navigation"
+        class="MuiPagination-root MuiPagination-text css-19zxguc-MuiPagination-root"
+      >
+        <ul
+          class="MuiPagination-ul css-1c5o7vy-MuiPagination-ul"
+        >
+          <li>
+            <button
+              aria-label="Go to previous page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-rounded Mui-disabled MuiPaginationItem-previousNext css-6qpcc8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-8uzxat-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateBeforeIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button
+              aria-label="Go to next page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-rounded Mui-disabled MuiPaginationItem-previousNext css-6qpcc8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-8uzxat-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateNextIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-irsnvt-MuiGrid2-root"
+      data-testid="PhotoViewer"
+    />
+  </div>
+</div>
+`;

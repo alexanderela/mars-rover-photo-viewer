@@ -2,8 +2,8 @@ import Grid from "@mui/material/Grid2";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import MapIcon from "@mui/icons-material/Map";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { StyledButtonContainer, StyledIconButton, StyledTypography } from "./SideNav-styled";
 import { useNavigate } from "react-router-dom";
+import { SideNavButton } from "../../components/SideNavButton";
 
 export const SideNav = () => {
   const navigate = useNavigate();
@@ -19,43 +19,27 @@ export const SideNav = () => {
       }}
       data-testid="SideNav"
     >
-      <StyledButtonContainer>
-        <StyledIconButton
-          aria-label="rover photos"
-          onClick={() => navigate("photos/rovers/curiosity?page=1")}
-        >
-          <PhotoLibraryIcon fontSize="large" />
-          <StyledTypography variant="body2">
-          Rover Photos
-          </StyledTypography>
-        </StyledIconButton>
-      </StyledButtonContainer>
-
-      <StyledButtonContainer>
-        <StyledIconButton 
-          aria-label="rover map"
-          value="map"
-          onClick={() => navigate("map")}
-        >
-          <MapIcon fontSize="large" />
-        </StyledIconButton>
-        <StyledTypography variant="body2">
-          Rover Map
-        </StyledTypography>
-      </StyledButtonContainer>
-
-      <StyledButtonContainer>
-        <StyledIconButton 
-          aria-label="favorite photos"
-          value="favorites"
-          onClick={() => navigate("favorites/rovers/curiosity?page=1")}
-        >
-          <FavoriteIcon fontSize="large" />
-        </StyledIconButton>
-        <StyledTypography variant="body2">
-          Favorites
-        </StyledTypography>
-      </StyledButtonContainer>
+      <SideNavButton
+        name="rover photos"
+        label="Rover Photos"
+        Icon={PhotoLibraryIcon}
+        onClick={() => navigate("photos/rovers/curiosity?page=1")}
+        data-testid="SideNavButton-photos"
+      />
+      <SideNavButton
+        name="rover map"
+        label="Rover Map"
+        Icon={MapIcon}
+        onClick={() => navigate("map")}
+        data-testid="SideNavButton-map"
+      />
+      <SideNavButton
+        name="rover favorites"
+        label="Favorites"
+        Icon={FavoriteIcon}
+        onClick={() => navigate("favorites/rovers/curiosity?page=1")}
+        data-testid="SideNavButton-favorites"
+      />
     </Grid>
   );
 };
